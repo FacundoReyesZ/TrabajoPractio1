@@ -1,0 +1,95 @@
+"""
+Argentina:    LLNNNLL
+Brasil:       LLLNLNN
+Bolivia:      LLNNNNN
+Paraguay:     LLLLNNN
+Uruguay:      LLLNNNN
+"""
+
+# TODOS EXCEPTO BRASIL Y BOLIV , PEAJE DE 300 , BRASIL 400 , BOLIVIA 200  (PESOS ARG)
+
+
+importe_final = 300
+importe_basico = 300
+abecedario = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+digitos = "0123456789"
+
+
+patente = input("Ingrese la patente del vehiculo: ")
+
+
+if 6 >= len(patente) > 7:
+    pais = "otro"
+
+
+elif patente[0] in abecedario and patente[1] in abecedario and patente[2] in digitos and patente[3] in digitos and patente[4] in digitos and patente[5] in abecedario and patente[6] in abecedario:
+    pais = "Argentina"
+
+elif patente[0] in abecedario and patente[1] in abecedario and patente[2] in abecedario and patente[3] in digitos and patente[4] in abecedario and patente[5] in digitos and patente[6] in digitos:
+    pais = "Brasil"
+
+elif patente[0] in abecedario and patente[1] in abecedario and patente[2] in digitos and patente[3] in digitos and patente[4] in digitos and patente[5] in digitos and patente[6] in digitos:
+    pais = "Bolivia"
+
+elif patente[0] in abecedario and patente[1] in abecedario and patente[2] in abecedario and patente[3] in abecedario and patente[4] in digitos and patente[5] in digitos and patente[6] in digitos:
+    pais = "Paraguay"
+
+elif patente[0] in abecedario and patente[1] in abecedario and patente[2] in abecedario and patente[3] in digitos and patente[4] in digitos and patente[5] in digitos and patente[6] in digitos:
+    pais = "Uruguay"
+
+
+tipo_vehiculo = int(input("Ingrese el tipo de vehiculo"))
+if tipo_vehiculo == 0:
+    tipo_vehiculo = "motocicleta"
+    importe_final = importe_final * 0.5
+    importe_basico = importe_basico * 0.5
+
+elif tipo_vehiculo == 1:
+    tipo_vehiculo = "automovil"
+
+elif tipo_vehiculo == 2:
+    tipo_vehiculo = "camion"
+    importe_final = importe_final * 1.6
+    importe_basico = importe_basico * 1.6
+
+
+
+forma_pago = int(input("Ingrese la forma de pago"))
+if forma_pago == 1:
+    forma_pago = "manual"
+else:
+    forma_pago = "telepeaje"
+    importe_final = importe_final * 0.90
+
+pais = int(input("Ingrese el pais "))
+if pais == 0:
+    pais = "Argentina"
+if pais == 1:
+    pais = "Brasil"
+    importe_final = importe_final * 1.33
+    importe_basico = importe_basico * 1.33
+if pais == 2:
+    pais = "Bolivia"
+    importe_final = importe_final * 0.67
+    importe_basico = importe_basico * 0.67
+if pais == 3:
+    pais = "Paraguay"
+if pais == 4:
+    pais = "Uruguay"
+
+distancia = float(input("Ingrese la distancia desde la ultima cabina"))
+valor_promedio_por_km = importe_final / distancia
+
+
+
+
+print("=== TICKET ===")
+print(f"El pais de procedencia es {pais}")
+print(f"El importe a abonar es: ${importe_basico}")
+print(f"si abona con telepeaje su valor final es: ${importe_final}")
+print(f"El valor promedio pagado por el vehículo por cada kilómetro recorrido desde la última cabina es: ${valor_promedio_por_km}")
+
+
+
+
+print(patente,tipo_vehiculo,forma_pago,pais,distancia)
